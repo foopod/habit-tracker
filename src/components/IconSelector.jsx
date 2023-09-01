@@ -2,6 +2,7 @@ import { useState } from "react";
 import EmojiPicker from "emoji-picker-react";
 import "./IconSelector.css";
 import { Button } from "./Button";
+import { EmojiStyle } from "emoji-picker-react";
 
 export const IconSelector = ({ icon, setIcon }) => {
   const [isEmojiPickerVisible, setIsEmojiPickerVisible] = useState(false);
@@ -26,6 +27,8 @@ export const IconSelector = ({ icon, setIcon }) => {
             }}
             previewConfig={{ showPreview: false }}
             height={300}
+            emojiStyle={EmojiStyle.NATIVE}
+            emojiVersion={0.6}
           />
           <div className="close-button-container">
             <Button

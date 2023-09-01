@@ -1,14 +1,11 @@
 .home-container {
-    text-align: center;
     display: grid;
+    grid-auto-rows: auto 1fr auto;
     height: 100%;
+    text-align: center;
     align-content: baseline;
 }
 
 .sticky-button{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
     padding: 1em;
 }
