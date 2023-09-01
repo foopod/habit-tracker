@@ -1,0 +1,9 @@
+.calendar-row{
+    display: grid;
+    grid-template-columns: 40px 8fr;
+    justify-items: flex-start;
+}
+.calendar-row p{
+    padding: 0 1rem;
+    margin: 0.2rem;
+}

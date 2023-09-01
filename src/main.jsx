@@ -6,6 +6,7 @@ import { AddActivity } from "./pages/AddActivity";
 import { ActivityContextProvider } from "./context/ActivityContext";
 import { EditActivity } from "./pages/EditActivity";
 import "./main.css";
+import { Calendar } from "./pages/Calendar";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/edit/:id",
     element: <EditActivity />,
+  },
+  {
+    path: "/calendar/:id",
+    element: <Calendar />,
   },
 ]);
 

@@ -11,16 +11,23 @@ export const Activity = ({ activity, mode }) => {
   const navigate = useNavigate();
 
   let today = activity.data.find((day) => {
-    return day.date === format(new Date(), "dd/MM/yyyy");
+    return day.date === format(new Date(), "yyyy-MM-dd");
   });
 
   if (!today) {
-    today = { count: 0, date: format(new Date(), "dd/MM/yyyy") };
+    today = { count: 0, date: format(new Date(), "yyyy-MM-dd") };
   }
 
   return (
     <div className="activity-container">
-      <span className="activity-icon">{activity.icon}</span>
+      <span
+        className="activity-icon"
+        onClick={() => {
+          navigate(`/calendar/${activity.id}`);
+        }}
+      >
+        {activity.icon}
+      </span>
       <ActivityData activity={activity} count={today.count} />
       {mode === "display" && (
         <button
