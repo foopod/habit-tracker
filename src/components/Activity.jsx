@@ -28,7 +28,7 @@ export const Activity = ({ activity }) => {
       "Muy Bien!",
       "Terrific!",
       "Noice!",
-      "Superb",
+      "Superb!",
     ];
     return props[Math.floor(Math.random() * props.length)];
   };
