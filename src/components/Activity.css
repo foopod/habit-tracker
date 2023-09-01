@@ -3,9 +3,9 @@
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: auto;
     align-items: center;
-    padding-bottom: 1.5em;
+    padding-bottom: 1em;
     border-bottom: 1px lightgray solid;
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 .activity-icon{
     font-size: 40px;
