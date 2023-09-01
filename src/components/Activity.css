@@ -4,7 +4,7 @@
     grid-template-rows: auto;
     align-items: center;
     padding-bottom: 1em;
-    border-bottom: 1px lightgray solid;
+    border-bottom: thin lightgray solid;
     margin-top: 1em;
 }
 .activity-icon{
