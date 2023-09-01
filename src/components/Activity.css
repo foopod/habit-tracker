@@ -1,0 +1,38 @@
+.activity-container{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    margin: 1em 0;
+}
+.activity-icon{
+    font-size: 30px;
+    justify-self: center;
+}
+.activity-data{
+    display: grid;
+    grid-template-columns: 1f;
+}
+.activity-name{
+    margin: 0;
+    font-weight: bold;
+    text-align: left;
+}
+.activity-hint{
+    text-align: center;
+    color: grey;
+    margin: 0;
+}
+.activity-add-one{
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 0.5em;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.5em;
+}
+.activity-add-one:hover{
+    background-color: var(--secondary-color);
+}

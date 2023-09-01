@@ -1,0 +1,12 @@
+html, body, #root{
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-color: #414bb2;
+    --secondary-color: #606bd5
+  }
+  
