@@ -1,12 +1,15 @@
 import { format } from "date-fns";
-import ProgressBar from "@ramonak/react-progress-bar";
 import { useContext } from "react";
 import { ActivityContext } from "../context/ActivityContext";
-import { getRandom } from "../util/crypto";
 import "./Activity.css";
+import { ActivityData } from "./ActivityData";
+import { Button } from "./Button";
+import { useNavigate } from "react-router";
 
-export const Activity = ({ activity }) => {
+export const Activity = ({ activity, mode }) => {
   const { addProgress } = useContext(ActivityContext);
+  const navigate = useNavigate();
+
   let today = activity.data.find((day) => {
     return day.date === format(new Date(), "dd/MM/yyyy");
   });
@@ -15,85 +18,30 @@ export const Activity = ({ activity }) => {
     today = { count: 0, date: format(new Date(), "dd/MM/yyyy") };
   }
 
-  const getProps = () => {
-    const props = [
-      "Awesome!",
-      "Great job!",
-      "Nice work!",
-      "Heck Yes!",
-      "Boo yah!",
-      "GG.",
-      "I'm impressed!",
-      "Way to go!",
-      "That's dope!",
-      "Muy Bien!",
-      "Terrific!",
-      "Noice!",
-      "Superb!",
-    ];
-    return props[
-      Math.floor(getRandom(activity.id + activity.date) * props.length)
-    ];
-  };
-
-  const getProgress = () => {
-    if (today.count < activity.goal) {
-      return (
-        <>
-          <ProgressBar
-            bgColor="#414bb2"
-            completed={(today.count / activity.goal) * 100}
-            isLabelVisible={false}
-          />
-          <p className="activity-hint">
-            only {activity.goal - today.count} to go
-          </p>
-        </>
-      );
-    } else if (today.count > activity.goal) {
-      return (
-        <>
-          <ProgressBar
-            bgColor="#414bb2"
-            baseBgColor="#31E981"
-            completed={(activity.goal / today.count) * 100}
-            isLabelVisible={false}
-          />
-          <p className="activity-hint">
-            {getProps(activity.name)} {today.count - activity.goal} over your
-            goal
-          </p>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <ProgressBar
-            bgColor="#414bb2"
-            completed={(today.count / activity.goal) * 100}
-            isLabelVisible={false}
-          />
-          <p className="activity-hint">{getProps()}</p>
-        </>
-      );
-    }
-  };
-
   return (
     <div className="activity-container">
       <span className="activity-icon">{activity.icon}</span>
-      <div className="activity-data">
-        <p className="activity-name">{activity.name}</p>
-        {getProgress()}
-      </div>
-      <button
-        onClick={() => {
-          addProgress(activity.id, today.date);
-        }}
-        className="activity-add-one"
-      >
-        +
-      </button>
+      <ActivityData activity={activity} count={today.count} />
+      {mode === "display" && (
+        <button
+          onClick={() => {
+            addProgress(activity.id, today.date);
+          }}
+          className="activity-add-one"
+        >
+          +
+        </button>
+      )}
+      {mode === "edit" && (
+        <div className="activity-edit-button">
+          <Button
+            onClick={() => {
+              navigate(`/edit/${activity.id}`);
+            }}
+            text={"Edit"}
+          />
+        </div>
+      )}
     </div>
   );
 };

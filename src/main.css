@@ -8,6 +8,9 @@ html, body, #root{
 
 :root {
     --primary-color: #414bb2;
-    --secondary-color: #606bd5
+    --secondary-color: #606bd5;
+    --scary-color: #FF595E;
+    --scary-dark-color: #FF282F;
+    --highlight-color: #31e981;
   }
   

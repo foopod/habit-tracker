@@ -1,28 +1,30 @@
-import { useContext, useId, useState } from "react";
+import { useContext, useEffect, useId, useState } from "react";
 import { IconSelector } from "../components/IconSelector";
 import { ActivityContext } from "../context/ActivityContext";
 import { useNavigate, useParams } from "react-router";
-import "./AddActivity.css";
 import { Button } from "../components/Button";
-import { v4 as uuidv4 } from "uuid";
+import "./AddActivity.css";
 
-export const AddActivity = () => {
-  const { mode } = useParams();
+export const EditActivity = () => {
+  const { id } = useParams("id");
+  const { getActivity, updateActivity, deleteActivity } =
+    useContext(ActivityContext);
   const [activityName, setActivityName] = useState("");
   const [dailyGoal, setDailyGoal] = useState("");
   const [icon, setIcon] = useState("✅");
-  const { addActivity } = useContext(ActivityContext);
-  const navigate = useNavigate();
 
-  const add = () => {
-    const activity = {
-      name: activityName,
-      goal: Number(dailyGoal),
-      icon,
-      data: [],
-      id: uuidv4(),
-    };
-    addActivity(activity);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (id) {
+      const activity = getActivity(id);
+      setActivityName(activity.name);
+      setDailyGoal(activity.goal);
+      setIcon(activity.icon);
+    }
+  }, [id]);
+
+  const update = () => {
+    updateActivity(id, activityName, dailyGoal, icon);
     navigate("/");
   };
 
@@ -52,17 +54,17 @@ export const AddActivity = () => {
         <div className="button-container">
           <Button
             disabled={activityName.length < 1 || dailyGoal.length < 1}
-            onClick={add}
-            text="Add"
+            onClick={update}
+            text="Done"
             type="primary"
           />
           <Button
             onClick={() => {
-              console.log("back");
+              deleteActivity(id);
               navigate("/");
             }}
-            text="Back"
-            type="secondary"
+            text="Delete Activity"
+            type="scary"
           />
         </div>
       </form>

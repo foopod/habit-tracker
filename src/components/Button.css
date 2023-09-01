@@ -34,3 +34,15 @@
     border: 1px solid var(--secondary-color);
     color: white;
 }
+
+.scary {
+    background-color:var(--scary-color);
+    color: white;
+    border: 1px solid var(--scary-color);
+}
+
+.scary:hover {
+    background-color: var(--scary-dark-color);
+    border: 1px solid var(--scary-dark-color);
+    color: white;
+}

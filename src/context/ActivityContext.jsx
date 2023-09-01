@@ -16,9 +16,29 @@ const reducer = (activities, action) => {
     return updatedActivities;
   }
 
+  if (action.type === "update_activity") {
+    const updatedActivities = cloneDeep(activities);
+    const activity = updatedActivities.find(
+      (activity) => activity.id === action.payload.id
+    );
+    activity.name = action.payload.name;
+    activity.goal = action.payload.goal;
+    activity.icon = action.payload.icon;
+    updateLocalStorage(updatedActivities);
+    return updatedActivities;
+  }
+
+  if (action.type === "delete_activity") {
+    const updatedActivities = activities.filter((activity) => {
+      return !(activity.id === action.payload.id);
+    });
+    updateLocalStorage(updatedActivities);
+    return updatedActivities;
+  }
+
   if (action.type === "add_progress") {
-    const activitiesCopy = cloneDeep(activities);
-    const activity = activitiesCopy.find(
+    const updatedActivities = cloneDeep(activities);
+    const activity = updatedActivities.find(
       (activity) => activity.id === action.payload.id
     );
     let day = activity.data.find((data) => data.date === action.payload.date);
@@ -31,8 +51,8 @@ const reducer = (activities, action) => {
       activity.data.push(day);
     }
     day.count += 1;
-    updateLocalStorage(activitiesCopy);
-    return activitiesCopy;
+    updateLocalStorage(updatedActivities);
+    return updatedActivities;
   }
 
   if (action.type === "initialise_data") {
@@ -45,6 +65,21 @@ export const ActivityContextProvider = ({ children }) => {
 
   const addActivity = (activity) => {
     dispatchActivityChange({ type: "add_activity", payload: { activity } });
+  };
+
+  const deleteActivity = (id) => {
+    dispatchActivityChange({ type: "delete_activity", payload: { id } });
+  };
+
+  const updateActivity = (id, name, goal, icon) => {
+    dispatchActivityChange({
+      type: "update_activity",
+      payload: { id, name, goal, icon },
+    });
+  };
+
+  const getActivity = (id) => {
+    return activities.find((activity) => activity.id === id);
   };
 
   const addProgress = (id, date) => {
@@ -62,7 +97,16 @@ export const ActivityContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <ActivityContext.Provider value={{ addActivity, addProgress, activities }}>
+    <ActivityContext.Provider
+      value={{
+        addActivity,
+        addProgress,
+        getActivity,
+        updateActivity,
+        deleteActivity,
+        activities,
+      }}
+    >
       {children}
     </ActivityContext.Provider>
   );

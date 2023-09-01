@@ -9,3 +9,10 @@
 .sticky-button{
     padding: 1em;
 }
+
+.sticky-button-two{
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
