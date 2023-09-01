@@ -1,8 +1,9 @@
 import { format } from "date-fns";
-import "./Activity.css";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { useContext } from "react";
 import { ActivityContext } from "../context/ActivityContext";
+import { getRandom } from "../util/crypto";
+import "./Activity.css";
 
 export const Activity = ({ activity }) => {
   const { addProgress } = useContext(ActivityContext);
@@ -30,7 +31,7 @@ export const Activity = ({ activity }) => {
       "Noice!",
       "Superb!",
     ];
-    return props[Math.floor(Math.random() * props.length)];
+    return props[Math.floor(getRandom(activity.id) * props.length)];
   };
 
   const getProgress = () => {
@@ -57,7 +58,8 @@ export const Activity = ({ activity }) => {
             isLabelVisible={false}
           />
           <p className="activity-hint">
-            {getProps()} {today.count - activity.goal} over your goal
+            {getProps(activity.name)} {today.count - activity.goal} over your
+            goal
           </p>
         </>
       );
