@@ -51,7 +51,7 @@ export const ActivityForm = ({ activity, onComplete, onDelete }) => {
               text="Done"
               type="primary"
             />
-            <Button onClick={onDelete} text="Delete Activity" type="scary" />
+            <Button onClick={onDelete} text="Delete" type="scary" />
           </div>
         ) : (
           <div className="button-container">

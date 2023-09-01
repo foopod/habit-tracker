@@ -1,12 +1,14 @@
 .activity-container{
     display: grid;
-    grid-template-columns: 1fr 4fr 1.5fr;
+    grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: auto;
     align-items: center;
-    margin: 1em 0;
+    padding-bottom: 1.5em;
+    border-bottom: 1px lightgray solid;
+    margin-top: 1.5em;
 }
 .activity-icon{
-    font-size: 30px;
+    font-size: 50px;
     justify-self: center;
 }
 .activity-data{
@@ -35,6 +37,7 @@
     color: white;
     font-size: 1.5em;
     place-self: center;
+    padding-bottom: 4px;
 }
 .activity-add-one:hover{
     background-color: var(--secondary-color);

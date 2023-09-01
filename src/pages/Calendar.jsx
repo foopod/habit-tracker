@@ -15,14 +15,16 @@ export const Calendar = () => {
   useEffect(() => {
     if (id) {
       const requestedActivity = getActivity(id);
-      setCurrentData(
-        requestedActivity.data.filter((item) => {
-          return (new Date(item.date).getMonth = currentMonth);
-        })
-      );
-      setActivity(requestedActivity);
+      if (requestedActivity) {
+        setCurrentData(
+          requestedActivity.data.filter((item) => {
+            return (new Date(item.date).getMonth = currentMonth);
+          })
+        );
+        setActivity(requestedActivity);
+      }
     }
-  }, [id]);
+  }, [id, getActivity]);
 
   const renderDay = (day) => {
     const date = new Date(day.date);

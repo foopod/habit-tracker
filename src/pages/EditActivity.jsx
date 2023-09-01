@@ -1,10 +1,8 @@
 import { useContext, useEffect, useId, useState } from "react";
-import { IconSelector } from "../components/IconSelector";
 import { ActivityContext } from "../context/ActivityContext";
 import { useNavigate, useParams } from "react-router";
-import { Button } from "../components/Button";
-import "./AddActivity.css";
 import { ActivityForm } from "../components/ActivityForm";
+import "./AddActivity.css";
 
 export const EditActivity = () => {
   const { id } = useParams("id");
@@ -18,7 +16,7 @@ export const EditActivity = () => {
       const requestedActivity = getActivity(id);
       setActivity(requestedActivity);
     }
-  }, [id]);
+  }, [id, getActivity]);
 
   const update = (activity) => {
     updateActivity(id, activity.name, activity.goal, activity.icon);

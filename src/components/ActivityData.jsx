@@ -31,6 +31,8 @@ export const ActivityData = ({ activity, count }) => {
             bgColor="#414bb2"
             completed={(count / activity.goal) * 100}
             isLabelVisible={false}
+            height={"14px"}
+            margin={"5px 0"}
           />
           <p className="activity-hint">only {activity.goal - count} to go</p>
         </>
@@ -43,6 +45,8 @@ export const ActivityData = ({ activity, count }) => {
             baseBgColor="#31E981"
             completed={(activity.goal / count) * 100}
             isLabelVisible={false}
+            height={"14px"}
+            margin={"5px 0"}
           />
           <p className="activity-hint">
             {getProps(activity.name)} {count - activity.goal} over your goal
@@ -56,6 +60,8 @@ export const ActivityData = ({ activity, count }) => {
             bgColor="#414bb2"
             completed={(count / activity.goal) * 100}
             isLabelVisible={false}
+            height={"14px"}
+            margin={"5px 0"}
           />
           <p className="activity-hint">{getProps()}</p>
         </>
