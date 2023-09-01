@@ -19,11 +19,13 @@ export const IconSelector = ({ icon, setIcon }) => {
       {isEmojiPickerVisible && (
         <div className="emoji-container">
           <EmojiPicker
-            autoFocusSearch={true}
+            searchDisabled={true}
             onEmojiClick={(emojiItem) => {
               setIcon(emojiItem.emoji);
               setIsEmojiPickerVisible(false);
             }}
+            previewConfig={{ showPreview: false }}
+            height={300}
           />
           <div className="close-button-container">
             <Button
