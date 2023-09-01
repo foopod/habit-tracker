@@ -31,7 +31,9 @@ export const Activity = ({ activity }) => {
       "Noice!",
       "Superb!",
     ];
-    return props[Math.floor(getRandom(activity.id) * props.length)];
+    return props[
+      Math.floor(getRandom(activity.id + activity.date) * props.length)
+    ];
   };
 
   const getProgress = () => {

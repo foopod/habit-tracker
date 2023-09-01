@@ -16,7 +16,7 @@ export const AddActivity = () => {
   const add = () => {
     const activity = {
       name: activityName,
-      goal: dailyGoal,
+      goal: Number(dailyGoal),
       icon,
       data: [],
       id: uuidv4(),

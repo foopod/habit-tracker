@@ -26,6 +26,7 @@ const reducer = (activities, action) => {
       day = {
         count: 0,
         date: action.payload.date,
+        goal: activity.goal,
       };
       activity.data.push(day);
     }
