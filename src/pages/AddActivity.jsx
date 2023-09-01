@@ -5,67 +5,23 @@ import { useNavigate, useParams } from "react-router";
 import "./AddActivity.css";
 import { Button } from "../components/Button";
 import { v4 as uuidv4 } from "uuid";
+import { ActivityForm } from "../components/ActivityForm";
 
 export const AddActivity = () => {
-  const { mode } = useParams();
-  const [activityName, setActivityName] = useState("");
-  const [dailyGoal, setDailyGoal] = useState("");
-  const [icon, setIcon] = useState("✅");
   const { addActivity } = useContext(ActivityContext);
   const navigate = useNavigate();
 
-  const add = () => {
-    const activity = {
-      name: activityName,
-      goal: Number(dailyGoal),
-      icon,
+  const add = (activity) => {
+    const newActivity = {
+      name: activity.name,
+      goal: activity.goal,
+      icon: activity.icon,
       data: [],
       id: uuidv4(),
     };
-    addActivity(activity);
+    addActivity(newActivity);
     navigate("/");
   };
 
-  return (
-    <main>
-      <form className="container">
-        <h1>Add Activity</h1>
-        <label htmlFor="activityName">Activity Name</label>
-        <input
-          id="activityName"
-          value={activityName}
-          type="text"
-          onChange={(e) => {
-            setActivityName(e.target.value);
-          }}
-        />
-        <label htmlFor="dailyGoal">Daily Goal</label>
-        <input
-          id="dailyGoal"
-          value={dailyGoal}
-          type="number"
-          onChange={(e) => {
-            setDailyGoal(e.target.value);
-          }}
-        />
-        <IconSelector icon={icon} setIcon={setIcon} />
-        <div className="button-container">
-          <Button
-            disabled={activityName.length < 1 || dailyGoal.length < 1}
-            onClick={add}
-            text="Add"
-            type="primary"
-          />
-          <Button
-            onClick={() => {
-              console.log("back");
-              navigate("/");
-            }}
-            text="Back"
-            type="secondary"
-          />
-        </div>
-      </form>
-    </main>
-  );
+  return <ActivityForm onComplete={add} />;
 };
