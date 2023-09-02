@@ -8,6 +8,7 @@ export const IconSelector = ({ icon, setIcon }) => {
   const [isEmojiPickerVisible, setIsEmojiPickerVisible] = useState(false);
   return (
     <>
+    <div>
       <label htmlFor="icon">Icon</label>
       <div
         id="icon"
@@ -16,6 +17,7 @@ export const IconSelector = ({ icon, setIcon }) => {
         }}
       >
         <span>{icon}</span>
+      </div>
       </div>
       {isEmojiPickerVisible && (
         <div className="emoji-container">

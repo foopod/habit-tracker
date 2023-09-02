@@ -1,8 +1,8 @@
-main{
+main {
     height: 100%;
 }
 
-.add-activity-container{
+.add-activity-container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -11,7 +11,8 @@ main{
     align-content: center;
 }
 
-input {
+input[type=number],
+input[type=text] {
     padding: 0.5em;
     margin: 1em 0;
     font-size: 1em;
@@ -19,10 +20,21 @@ input {
     border: 1px grey solid;
 }
 
-.button-container{
+input[type=checkbox] {
+    transform: scale(2);
+    margin: 2.5em;
+}
+
+.checkbox-container {
+    display: grid;
+    align-items: center;
+    margin: 0.5em;
+}
+
+.button-container {
     margin: 1em 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap :1rem;
+    gap: 1rem;
     direction: rtl;
 }

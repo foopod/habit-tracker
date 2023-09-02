@@ -21,25 +21,25 @@ export const ActivityForm = ({ activity, onComplete, onDelete }) => {
   };
 
   const isDisabled = () => {
-    if(activityName.length < 1 || dailyGoal.length < 1){
-      return true
+    if (activityName.length < 1 || dailyGoal.length < 1) {
+      return true;
     }
     // not a number
-    const goalNumber = Number(dailyGoal)
-    if(goalNumber == NaN){
-      return true
+    const goalNumber = Number(dailyGoal);
+    if (Number.isNaN(goalNumber)) {
+      return true;
     }
     // less than one
-    if(goalNumber < 1){
-      return true
+    if (goalNumber < 1) {
+      return true;
     }
     // decimals?
-    if(goalNumber % 1 !== 0){
-      return true
+    if (goalNumber % 1 !== 0) {
+      return true;
     }
 
-    return false
-  }
+    return false;
+  };
 
   return (
     <main>
@@ -64,7 +64,29 @@ export const ActivityForm = ({ activity, onComplete, onDelete }) => {
           }}
           min={1}
         />
-        <IconSelector icon={icon} setIcon={setIcon} />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "1em",
+          }}
+        >
+          <IconSelector icon={icon} setIcon={setIcon} />
+          <div>
+            <label htmlFor="limit">Can exceed goal?</label>
+            <div className="checkbox-container">
+              <input
+                id="limit"
+                value={dailyGoal}
+                type="checkbox"
+                onChange={(e) => {
+                  setDailyGoal(e.target.value);
+                }}
+                min={1}
+              />
+            </div>
+          </div>
+        </div>
         {activity ? (
           <div className="button-container">
             <Button
