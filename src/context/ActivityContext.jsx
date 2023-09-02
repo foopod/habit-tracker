@@ -103,6 +103,7 @@ export const ActivityContextProvider = ({ children }) => {
     window.addEventListener("beforeinstallprompt", (e) => {
       // Prevents the default mini-infobar or install dialog from appearing on mobile
       e.preventDefault();
+      alert("s");
       // Save the event because you'll need to trigger it later.
       setInstallPrompt(e);
     });
