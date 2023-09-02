@@ -52,7 +52,7 @@ export default defineConfig({
         scope: "/",
         description: "An app to track your habits and build a better you!",
         orientation: "portrait",
-        shortcuts: [{ name: "Add Activity", url: "/add" }],
+        shortcuts: [{ name: "Add Activity", short_name: "add", url: "/add" }],
         icons: [
           {
             src: "/icon-192.png",
