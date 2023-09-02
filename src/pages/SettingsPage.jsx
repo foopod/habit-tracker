@@ -7,8 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const SettingsPage = () => {
-  const { activities, initialiseData, installPrompt } =
-    useContext(ActivityContext);
+  const { activities, initialiseData } = useContext(ActivityContext);
   const navigate = useNavigate();
 
   const downloadData = () => {
@@ -97,17 +96,6 @@ export const SettingsPage = () => {
         />
         <p>Export Data</p>
         <Button onClick={downloadData} text={"Download"} />
-        {installPrompt && (
-          <>
-            <p>Install App</p>
-            <Button
-              onClick={() => {
-                installPrompt.prompt();
-              }}
-              text={"Install"}
-            />
-          </>
-        )}
         <p>Import Data</p>
         <Button onClick={uploadData} text={"Upload"} type={"scary"} />
         <p className="notice">* this will override all current activity data</p>

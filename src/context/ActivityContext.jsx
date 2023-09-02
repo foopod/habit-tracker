@@ -63,7 +63,6 @@ const reducer = (activities, action) => {
 
 export const ActivityContextProvider = ({ children }) => {
   const [activities, dispatchActivityChange] = useReducer(reducer, []);
-  const [installPrompt, setInstallPrompt] = useState(null);
 
   const addActivity = (activity) => {
     dispatchActivityChange({ type: "add_activity", payload: { activity } });
@@ -100,19 +99,11 @@ export const ActivityContextProvider = ({ children }) => {
     if (data) {
       initialiseData(JSON.parse(data));
     }
-    window.addEventListener("beforeinstallprompt", (e) => {
-      // Prevents the default mini-infobar or install dialog from appearing on mobile
-      e.preventDefault();
-      alert("s");
-      // Save the event because you'll need to trigger it later.
-      setInstallPrompt(e);
-    });
   }, []);
 
   return (
     <ActivityContext.Provider
       value={{
-        installPrompt,
         addActivity,
         addProgress,
         getActivity,
