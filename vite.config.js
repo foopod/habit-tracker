@@ -41,7 +41,7 @@ export default defineConfig({
           },
         ],
       },
-      includeAssets: ["/icon.svg"],
+      includeAssets: ["/icon.svg", "/icon-192.png", "/icon-512.png"],
       manifest: {
         name: "Activity Tracker",
         short_name: "Activity Tracker",
@@ -62,7 +62,7 @@ export default defineConfig({
           },
           {
             src: "/icon-512.png",
-            size: "512x512",
+            sizes: "512x512",
             type: "image/png",
           },
         ],
