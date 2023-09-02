@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 import "./SettingsPage.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeContext } from "../context/ThemeContext";
 
 export const SettingsPage = () => {
   const { activities, initialiseData } = useContext(ActivityContext);
+  const { theme, changeTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const downloadData = () => {
@@ -84,6 +86,10 @@ export const SettingsPage = () => {
     }
   };
 
+  const toggleTheme = () => {
+    changeTheme(theme === "dark" ? "light" : "dark");
+  };
+
   return (
     <div className="container">
       <h1>Settings</h1>
@@ -93,6 +99,11 @@ export const SettingsPage = () => {
           onClick={() => navigate("/about")}
           text={"More"}
           type="secondary"
+        />
+        <p>Change Theme</p>
+        <Button
+          onClick={toggleTheme}
+          text={`Swap to ${theme === "dark" ? "Light" : "Dark"} Mode`}
         />
         <p>Export Data</p>
         <Button onClick={downloadData} text={"Download"} />

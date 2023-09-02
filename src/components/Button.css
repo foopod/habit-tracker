@@ -23,6 +23,11 @@
     background-color: var(--secondary-color);
 }
 
+.dark .secondary {
+    background-color: black;
+    color: white
+}
+
 .secondary {
     background-color: white;
     color: black;
@@ -36,7 +41,7 @@
 }
 
 .scary {
-    background-color:var(--scary-color);
+    background-color: var(--scary-color);
     color: white;
     border: 1px solid var(--scary-color);
 }

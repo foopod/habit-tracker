@@ -1,12 +1,13 @@
 .about-container {
     padding: 1em;
+    overflow: scroll;
 }
 
-.about-container h2{
+.about-container h2 {
     font-size: 26px;
 }
 
 
-.about-container p{
+.about-container p {
     text-align: left;
 }

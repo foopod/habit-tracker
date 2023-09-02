@@ -1,8 +1,8 @@
-main{
+main {
     height: 100%;
 }
 
-.add-activity-container{
+.add-activity-container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -19,10 +19,15 @@ input {
     border: 1px grey solid;
 }
 
-.button-container{
+.dark input {
+    background-color: var(--dark-bg-color);
+    color: white
+}
+
+.button-container {
     margin: 1em 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap :1rem;
+    gap: 1rem;
     direction: rtl;
 }

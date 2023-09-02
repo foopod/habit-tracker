@@ -1,7 +1,11 @@
 import ProgressBar from "@ramonak/react-progress-bar";
 import { getRandom } from "../util/crypto";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 export const ActivityData = ({ activity, count }) => {
+  const { theme } = useContext(ThemeContext);
+
   const getProps = () => {
     const props = [
       "Awesome!",
@@ -28,7 +32,8 @@ export const ActivityData = ({ activity, count }) => {
       return (
         <>
           <ProgressBar
-            bgColor="#414bb2"
+            bgColor="var(--primary-color)"
+            baseBgColor={theme === "dark" ? "gray" : "lightgray"}
             completed={(count / activity.goal) * 100}
             isLabelVisible={false}
             height={"18px"}
@@ -41,8 +46,8 @@ export const ActivityData = ({ activity, count }) => {
       return (
         <>
           <ProgressBar
-            bgColor="#414bb2"
-            baseBgColor="#31E981"
+            bgColor="var(--primary-color)"
+            baseBgColor="var(--highlight-color)"
             completed={(activity.goal / count) * 100}
             isLabelVisible={false}
             height={"18px"}
@@ -57,7 +62,8 @@ export const ActivityData = ({ activity, count }) => {
       return (
         <>
           <ProgressBar
-            bgColor="#414bb2"
+            bgColor="var(--primary-color)"
+            baseBgColor={theme === "dark" ? "gray" : "lightgray"}
             completed={(count / activity.goal) * 100}
             isLabelVisible={false}
             height={"18px"}
