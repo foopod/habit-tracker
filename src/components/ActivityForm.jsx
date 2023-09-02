@@ -21,25 +21,25 @@ export const ActivityForm = ({ activity, onComplete, onDelete }) => {
   };
 
   const isDisabled = () => {
-    if(activityName.length < 1 || dailyGoal.length < 1){
-      return true
+    if (activityName.length < 1 || dailyGoal.length < 1) {
+      return true;
     }
     // not a number
-    const goalNumber = Number(dailyGoal)
-    if(goalNumber == NaN){
-      return true
+    const goalNumber = Number(dailyGoal);
+    if (Number.isNaN(goalNumber)) {
+      return true;
     }
     // less than one
-    if(goalNumber < 1){
-      return true
+    if (goalNumber < 1) {
+      return true;
     }
     // decimals?
-    if(goalNumber % 1 !== 0){
-      return true
+    if (goalNumber % 1 !== 0) {
+      return true;
     }
 
-    return false
-  }
+    return false;
+  };
 
   return (
     <main>
