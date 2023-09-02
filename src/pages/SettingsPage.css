@@ -1,14 +1,16 @@
 .settings-container {
-    padding: 1em
+    padding: 1em;
 }
 
-.notice{
+
+.notice {
     font-size: 14px;
     max-width: 16em;
     margin: 0.3em auto;
+    text-align: center;
 }
 
 .text {
-    font-size: 16px;
     text-align: left;
+    margin: 1em 0 0.5em;
 }

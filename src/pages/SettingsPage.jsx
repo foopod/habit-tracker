@@ -94,20 +94,20 @@ export const SettingsPage = () => {
     <div className="container">
       <h1>Settings</h1>
       <div className="settings-container">
-        <p>About this app</p>
+        <p className="text">About this app</p>
         <Button
           onClick={() => navigate("/about")}
           text={"More"}
           type="secondary"
         />
-        <p>Change Theme</p>
+        <p className="text">Change Theme</p>
         <Button
           onClick={toggleTheme}
           text={`Swap to ${theme === "dark" ? "Light" : "Dark"} Mode`}
         />
-        <p>Export Data</p>
+        <p className="text">Export Data</p>
         <Button onClick={downloadData} text={"Download"} />
-        <p>Import Data</p>
+        <p className="text">Import Data</p>
         <Button onClick={uploadData} text={"Upload"} type={"scary"} />
         <p className="notice">* this will override all current activity data</p>
       </div>
