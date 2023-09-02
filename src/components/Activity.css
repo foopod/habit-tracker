@@ -7,6 +7,9 @@
     border-bottom: thin lightgray solid;
     margin-top: 1em;
 }
+.dark .activity-container {
+    border-bottom: thin #333 solid;
+}
 .activity-icon {
     font-size: 40px;
     justify-self: center;
