@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
-import { ActivityContext } from "../context/ActivityContext";
 import { IconSelector } from "./IconSelector";
 import { Button } from "./Button";
+import "./ActivityForm.css";
 
 export const ActivityForm = ({ activity, onComplete, onDelete }) => {
   const [activityName, setActivityName] = useState(activity?.name || "");
@@ -22,7 +22,7 @@ export const ActivityForm = ({ activity, onComplete, onDelete }) => {
 
   return (
     <main>
-      <form className="container">
+      <form className="add-activity-container">
         <h1>{activity ? "Edit Activity" : "Add Activity"}</h1>
         <label htmlFor="activityName">Activity Name</label>
         <input
