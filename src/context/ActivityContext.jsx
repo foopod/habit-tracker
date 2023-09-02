@@ -56,6 +56,7 @@ const reducer = (activities, action) => {
   }
 
   if (action.type === "initialise_data") {
+    updateLocalStorage(action.payload.activities);
     return action.payload.activities;
   }
 };
@@ -86,13 +87,17 @@ export const ActivityContextProvider = ({ children }) => {
     dispatchActivityChange({ type: "add_progress", payload: { id, date } });
   };
 
+  const initialiseData = (data) => {
+    dispatchActivityChange({
+      type: "initialise_data",
+      payload: { activities: data },
+    });
+  };
+
   useEffect(() => {
     const data = localStorage.getItem("activities");
     if (data) {
-      dispatchActivityChange({
-        type: "initialise_data",
-        payload: { activities: JSON.parse(data) },
-      });
+      initialiseData(JSON.parse(data));
     }
   }, []);
 
@@ -105,6 +110,7 @@ export const ActivityContextProvider = ({ children }) => {
         updateActivity,
         deleteActivity,
         activities,
+        initialiseData,
       }}
     >
       {children}

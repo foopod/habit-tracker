@@ -13,7 +13,7 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="home-container">
+    <div className="container">
       <h1>My Activities</h1>
       <ActivityList mode={mode} />
       {mode === "display" && (
@@ -29,12 +29,19 @@ export const HomePage = () => {
         </div>
       )}
       {mode === "edit" && (
-        <div className="sticky-button">
+        <div className="sticky-button-two">
           <Button
             onClick={() => {
               setMode("display");
             }}
             text="Back"
+          />
+          <Button
+            onClick={() => {
+              navigate("/settings");
+            }}
+            text={"Settings"}
+            type="secondary"
           />
         </div>
       )}

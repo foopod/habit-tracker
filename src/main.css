@@ -1,23 +1,31 @@
 html, body, #root{
-    font-family: 'Open Sans', sans-serif;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-size: 16pt;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 16pt;
 }
 
 @media only screen and (min-width: 20em) {
-    body {
-      max-width: 20em;
-      margin: auto;
-    }
+  body {
+    max-width: 20em;
+    margin: auto;
   }
+}
+
+.container {
+  display: grid;
+  grid-auto-rows: auto 1fr auto;
+  height: 100%;
+  text-align: center;
+  align-content: baseline;
+}
 
 :root {
-    --primary-color: #414bb2;
-    --secondary-color: #606bd5;
-    --scary-color: #FF595E;
-    --scary-dark-color: #FF282F;
-    --highlight-color: #31e981;
-  }
-  
+  --primary-color: #414bb2;
+  --secondary-color: #606bd5;
+  --scary-color: #FF595E;
+  --scary-dark-color: #FF282F;
+  --highlight-color: #31e981;
+  --toastify-color-success: #31e981 !important;
+}

@@ -2,7 +2,6 @@ import { useContext, useEffect, useId, useState } from "react";
 import { ActivityContext } from "../context/ActivityContext";
 import { useNavigate, useParams } from "react-router";
 import { ActivityForm } from "../components/ActivityForm";
-import "./AddActivity.css";
 
 export const EditActivity = () => {
   const { id } = useParams("id");

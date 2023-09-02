@@ -2,3 +2,4 @@
 /edit  /index.html   200
 /edit/*  /index.html   200
 /calendar/*  /index.html   200
+/settings  /index.html   200

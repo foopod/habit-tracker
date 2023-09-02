@@ -7,6 +7,7 @@ import { ActivityContextProvider } from "./context/ActivityContext";
 import { EditActivity } from "./pages/EditActivity";
 import "./main.css";
 import { Calendar } from "./pages/Calendar";
+import { SettingsPage } from "./pages/SettingsPage";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/calendar/:id",
     element: <Calendar />,
+  },
+  {
+    path: "/settings",
+    element: <SettingsPage />,
   },
 ]);
 
