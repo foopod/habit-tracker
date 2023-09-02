@@ -102,7 +102,7 @@ export const SettingsPage = () => {
             <p>Install App</p>
             <Button
               onClick={() => {
-                installPrompt();
+                installPrompt.prompt();
               }}
               text={"Install"}
             />

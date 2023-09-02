@@ -104,7 +104,7 @@ export const ActivityContextProvider = ({ children }) => {
       // Prevents the default mini-infobar or install dialog from appearing on mobile
       e.preventDefault();
       // Save the event because you'll need to trigger it later.
-      setInstallPrompt(e.prompt);
+      setInstallPrompt(e);
     });
   }, []);
 
