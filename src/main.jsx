@@ -8,6 +8,7 @@ import { EditActivity } from "./pages/EditActivity";
 import "./main.css";
 import { Calendar } from "./pages/Calendar";
 import { SettingsPage } from "./pages/SettingsPage";
+import { AboutPage } from "./pages/AboutPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/settings",
     element: <SettingsPage />,
+  },
+  {
+    path: "/about",
+    element: <AboutPage />,
   },
 ]);
 

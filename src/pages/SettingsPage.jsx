@@ -88,6 +88,12 @@ export const SettingsPage = () => {
     <div className="container">
       <h1>Settings</h1>
       <div className="settings-container">
+        <p>About this app</p>
+        <Button
+          onClick={() => navigate("/about")}
+          text={"More"}
+          type="secondary"
+        />
         <p>Export Data</p>
         <Button onClick={downloadData} text={"Download"} />
         <p>Import Data</p>
