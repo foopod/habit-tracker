@@ -91,7 +91,8 @@ export const SettingsPage = () => {
         <p>Export Data</p>
         <Button onClick={downloadData} text={"Download"} />
         <p>Import Data</p>
-        <Button onClick={uploadData} text={"Upload"} />
+        <Button onClick={uploadData} text={"Upload"} type={"scary"} />
+        <p className="notice">* this will override all current activity data</p>
       </div>
       <ToastContainer position="top-center" theme="light" />
       <div className="sticky-button">

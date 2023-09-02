@@ -52,7 +52,7 @@ export const Calendar = () => {
   };
 
   return (
-    <div className="home-container">
+    <div className="container">
       <h1>Calendar</h1>
       <div>
         {currentData &&
