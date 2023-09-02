@@ -10,6 +10,7 @@
 .activity-icon{
     font-size: 40px;
     justify-self: center;
+    margin: 0 0.5rem;
 }
 .activity-data{
     display: grid;
@@ -44,5 +45,10 @@
 }
 
 .activity-edit-button{
-    padding: 0 0.5rem;
+    margin:0 0.5em;
+}
+
+.activity-edit-button button{
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
 }
