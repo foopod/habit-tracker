@@ -45,11 +45,11 @@ export default defineConfig({
       manifest: {
         name: "Activity Tracker",
         short_name: "Activity Tracker",
-        start_url: "index.html",
+        start_url: "/",
         display: "standalone",
         background_color: "#ffffff",
         theme_color: "#414bb2",
-        scope: ".",
+        scope: "/",
         description: "An app to track your habits and build a better you!",
         orientation: "portrait",
         shortcuts: [{ name: "Add Activity", short_name: "add", url: "/add" }],
