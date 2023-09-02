@@ -20,6 +20,27 @@ export const ActivityForm = ({ activity, onComplete, onDelete }) => {
     navigate("/");
   };
 
+  const isDisabled = () => {
+    if(activityName.length < 1 || dailyGoal.length < 1){
+      return true
+    }
+    // not a number
+    const goalNumber = Number(dailyGoal)
+    if(goalNumber == NaN){
+      return true
+    }
+    // less than one
+    if(goalNumber < 1){
+      return true
+    }
+    // decimals?
+    if(goalNumber % 1 !== 0){
+      return true
+    }
+
+    return false
+  }
+
   return (
     <main>
       <form className="add-activity-container">
@@ -41,6 +62,7 @@ export const ActivityForm = ({ activity, onComplete, onDelete }) => {
           onChange={(e) => {
             setDailyGoal(e.target.value);
           }}
+          min={1}
         />
         <IconSelector icon={icon} setIcon={setIcon} />
         {activity ? (
@@ -56,7 +78,7 @@ export const ActivityForm = ({ activity, onComplete, onDelete }) => {
         ) : (
           <div className="button-container">
             <Button
-              disabled={activityName.length < 1 || dailyGoal.length < 1}
+              disabled={isDisabled()}
               onClick={update}
               text="Add"
               type="primary"
