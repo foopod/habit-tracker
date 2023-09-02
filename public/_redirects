@@ -1,3 +1,4 @@
-/sw.js  /sw.js   200
-/registerSW.js  /registerSW.js   200
-/*  /index.html   200
+/add  /index.html   200
+/edit  /index.html   200
+/edit/*  /index.html   200
+/calendar/*  /index.html   200
