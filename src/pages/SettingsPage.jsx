@@ -22,27 +22,8 @@ export const SettingsPage = () => {
     link.remove();
   };
 
-  const uploadData = () => {
-    const uploader = document.createElement("input");
-    uploader.setAttribute("type", "file");
-    uploader.setAttribute("accept", ".json");
-    document.body.appendChild(uploader);
-    uploader.onchange = (e) => {
-      const reader = new FileReader();
-      reader.onload = onReaderLoad;
-      reader.readAsText(e.target.files[0]);
-    };
-    uploader.click();
-  };
-
-  const onReaderLoad = (e) => {
-    if (e.target.readyState != 2) return;
-    if (e.target.error) {
-      alert("Error reading file.");
-    }
-    const fileContent = JSON.parse(e.target.result);
-    initialiseData(fileContent);
-    toast.success("Upload Complete", {
+  const displayError = (err) => {
+    toast.error(err.toString(), {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -51,6 +32,56 @@ export const SettingsPage = () => {
       draggable: true,
       progress: undefined,
     });
+  };
+
+  const uploadData = () => {
+    try {
+      const uploader = document.createElement("input");
+      uploader.setAttribute("type", "file");
+      uploader.setAttribute("accept", ".json");
+      document.body.appendChild(uploader);
+      uploader.onchange = (e) => {
+        try {
+          if (e.target.files[0].name.split(".").pop() !== "json") {
+            throw new Error("Wrong file type");
+          }
+          const reader = new FileReader();
+          reader.onload = onReaderLoad;
+          reader.readAsText(e.target.files[0]);
+        } catch (err) {
+          displayError(err);
+        }
+      };
+      uploader.click();
+    } catch (err) {
+      displayError(err);
+    }
+  };
+
+  const onReaderLoad = (e) => {
+    try {
+      if (e.target.readyState != 2) return;
+      if (e.target.error) {
+        displayError(e.target.error);
+      }
+      const fileContent = JSON.parse(e.target.result);
+      if (Array.isArray(fileContent)) {
+        initialiseData(fileContent);
+      } else {
+        throw new Error("Wrong format");
+      }
+      toast.success("Upload Complete", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } catch (err) {
+      displayError(err);
+    }
   };
 
   return (
