@@ -7,8 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const SettingsPage = () => {
-  const { activities, initialiseData, installPrompt } =
-    useContext(ActivityContext);
+  const { activities, initialiseData } = useContext(ActivityContext);
   const navigate = useNavigate();
 
   const downloadData = () => {
