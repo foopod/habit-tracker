@@ -2,6 +2,11 @@
     padding: 1em;
 }
 
+.about-container h2{
+    font-size: 26px;
+}
+
+
 .about-container p{
     text-align: left;
 }
