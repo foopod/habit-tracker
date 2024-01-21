@@ -1,6 +1,9 @@
 # Activity Tracker
 
-I made this app to help manage habits that I want to build in my life.
+A mobile first app to help manage and build habits.
+
+[Activity Tracker](https://habits-tracked.netlify.app/)
+
 
 # To-do
 
